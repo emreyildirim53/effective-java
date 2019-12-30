@@ -4,8 +4,12 @@ package Item1;
 
 * */
 
+import java.util.logging.Logger;
+
 public class StaticFactoryMethodTest
 {
+    private static final Logger logger = Logger.getLogger(StaticFactoryMethodTest.class.getName());
+
     public static void main(String[] args) {
 
         createdWithConstructor();
@@ -19,22 +23,22 @@ public class StaticFactoryMethodTest
     private static void createdWithConstructor()
     {
         Pizza pizza = new Pizza(true);
-        System.out.println(pizza);
+        logger.info(pizza.toString());
     }
 
     private static void createdWithStaticFactoryMethod()
     {
-        System.out.println(PizzaFactory.slicedPizza());
-        System.out.println(PizzaFactory.unSlicedPizza());
+        logger.info(PizzaFactory.slicedPizza().toString());
+        logger.info(PizzaFactory.unSlicedPizza().toString());
     }
 
     private static void createdSingletonClassWithStaticFactoryMethod()
     {
         PizzaFactory pizzaFactory = PizzaFactory.getInstance("XL", true, true);
-        System.out.println(pizzaFactory);
+        logger.info(pizzaFactory.toString());
 
         pizzaFactory = PizzaFactory.getInstance("M", false, true);
-        System.out.println(pizzaFactory);
+        logger.info(pizzaFactory.toString());
     }
 }
 
