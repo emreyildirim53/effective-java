@@ -47,6 +47,5 @@ public class PizzaFactory
                 ", hasCheese=" + hasCheese +
                 '}';
     }
-
 }
 
