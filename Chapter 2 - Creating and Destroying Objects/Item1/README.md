@@ -1,15 +1,7 @@
 
-> medium-to-markdown@0.0.3 convert /Users/emre.yildirim/Desktop/medium-to-desktop/medium-to-markdown
-> node index.js "https://medium.com/@53.emreyildirim/static-factory-method-mu-constructor-m%C4%B1-7f00722a7535"
-
 Static Factory Method mu? Constructor mı?
 =========================================
 
-[![Emre Yıldırım](https://miro.medium.com/fit/c/96/96/2*JR386aaXHBbRCkoHIr1__Q.png)](https://medium.com/@53.emreyildirim?source=post_page-----7f00722a7535----------------------)[Emre Yıldırım](https://medium.com/@53.emreyildirim?source=post_page-----7f00722a7535----------------------)Follow[Dec 29](https://medium.com/@53.emreyildirim/static-factory-method-mu-constructor-mı-7f00722a7535?source=post_page-----7f00722a7535----------------------) · 3 min read
-
-<img class="cp t u fz ak" src="https://miro.medium.com/max/12000/1\*RSb13ih-eWr9crmpmFKVxw.jpeg" width="6000" height="4000" role="presentation"/>
-
-~ static factory method ~
 
 Selamlar, ülkemizi muasır medeniyetler seviyesine çıkarmak için yine, yeni ve yeniden karşındayım. Bu yazıda kitabımızın ilk bölümü olan **Creating and Destroying Objects (Obje Yaratma ve Yok etme** adımlarından ilki olan **Static factory methods instead of constructors (Yapıcılar Yerine Statik Fabrikalar)** bölümünden bahsedeceğim. Hangi kitap, ne bölümü? Diye soruların varsa şayet, seni [ilk yazıma](https://medium.com/@53.emreyildirim/efektif-bir-java-3d35cbb085c) göz ucuyla bakmaya davet ediyorum.
 
@@ -122,6 +114,6 @@ public class Pizza
 
 * * *
 
-Unutmadan söyleyeyim. Yazıların içerisinde yer alan kod parçalarını [**github**](https://github.com/emreyildirim53/effective-java)  hesabımdan paylaşıyor olacağım girip inceleyebilir beğenirsen yıldızlandırabilirsin ☺️
+Unutmadan söyleyeyim. Unutmadan söyleyeyim. Bu repo'nın daha detaylı açıklamasını [**medium**](https://medium.com/@53.emreyildirim/static-factory-method-mu-constructor-m%C4%B1-7f00722a7535) hesabımda bulabilirsin.
 
 Adiós 🙋🏻‍♂️
