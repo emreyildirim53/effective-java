@@ -114,6 +114,6 @@ public class Pizza
 
 * * *
 
-Unutmadan söyleyeyim. Unutmadan söyleyeyim. Bu repo'nın daha detaylı açıklamasını [**medium**](https://medium.com/@53.emreyildirim/static-factory-method-mu-constructor-m%C4%B1-7f00722a7535) hesabımda bulabilirsin.
+Unutmadan söyleyeyim. Bu repo'nın daha detaylı açıklamasını [**medium**](https://medium.com/@53.emreyildirim/static-factory-method-mu-constructor-m%C4%B1-7f00722a7535) hesabımda bulabilirsin.
 
 Adiós 🙋🏻‍♂️
