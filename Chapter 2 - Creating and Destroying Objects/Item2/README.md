@@ -4,7 +4,7 @@
 
 Hellöööğğğ… 😉 Bol sayıda özelliği bulunan sınıfların nasıl yaratılacağı konusunda bir fikrin var mı? Mesela bir obje düşünelim ki en basitinden 10–15 parametreli olsun. 😉 Ne yaparsın? Nasıl inşa edersin?
 
-<img class="cp t u gm ak" src="https://miro.medium.com/max/11296/1*i0G9rL35VZ-FCy2EZH0jaw.jpeg" width="5648" height="3917" role="presentation"/>
+<img class="cp t u gm ak" src="https://miro.medium.com/max/11296/1*i0G9rL35VZ-FCy2EZH0jaw.jpeg" width="5648" height="450" role="presentation"/>
 
 Düz mantık düşünelim. Her parametreyi kapsayacak şekilde bir constructor yaratırım şelale gibi her birini birbirine katmanlı bir şekilde bağlarım. Örneğin;
 
