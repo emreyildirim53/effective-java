@@ -1,15 +1,6 @@
 
 Çok Parametreli Constructor Yönetimi
 ====================================
----
-title: 'How to Create a Multi-Parameter Class?'
-excerpt: 'Any idea how to create classes with lots of properties? For example, let`s consider an object that has 10-15 parameters at its simplest. 😉 What would you do? How do you build?'
-coverImg: 'post-images/how-to-create-a-multi-parameter-class/cover.jpg'
-date: 'December 31, 2019'
-timestamp: '1577739600'
-time: '4 minutes'
-langLink: 'cok-parametreli-class-nasil-olusturulmali'
----
 
 Greetings 🙋🏻‍♂️ Any ideas on how to create classes with lots of features? For example, let's consider an object with 10-15 parameters 😱. What would you do? How do you build your class?
 
