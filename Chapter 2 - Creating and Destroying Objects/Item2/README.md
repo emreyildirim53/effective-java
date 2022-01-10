@@ -1,13 +1,19 @@
 
 Çok Parametreli Constructor Yönetimi
 ====================================
+---
+title: 'How to Create a Multi-Parameter Class?'
+excerpt: 'Any idea how to create classes with lots of properties? For example, let`s consider an object that has 10-15 parameters at its simplest. 😉 What would you do? How do you build?'
+coverImg: 'post-images/how-to-create-a-multi-parameter-class/cover.jpg'
+date: 'December 31, 2019'
+timestamp: '1577739600'
+time: '4 minutes'
+langLink: 'cok-parametreli-class-nasil-olusturulmali'
+---
 
-Hellöööğğğ… 😉 Bol sayıda özelliği bulunan sınıfların nasıl yaratılacağı konusunda bir fikrin var mı? Mesela bir obje düşünelim ki en basitinden 10–15 parametreli olsun. 😉 Ne yaparsın? Nasıl inşa edersin?
+Greetings 🙋🏻‍♂️ Any ideas on how to create classes with lots of features? For example, let's consider an object with 10-15 parameters 😱. What would you do? How do you build your class?
 
-<img class="cp t u gm ak" src="https://miro.medium.com/max/11296/1*i0G9rL35VZ-FCy2EZH0jaw.jpeg" width="5648" height="450" role="presentation"/>
-
-Düz mantık düşünelim. Her parametreyi kapsayacak şekilde bir constructor yaratırım şelale gibi her birini birbirine katmanlı bir şekilde bağlarım. Örneğin;
-
+Let's think straight logic. I create a constructor to cover each parameter. Like a waterfall, I connect each of them in a layered way. E.g;
 ```
 public class Computer  
 {  
@@ -34,35 +40,35 @@ public class Computer
 ...
 ```
 
-elimde bir Computer sınıfı olsun ve gerekli gereksiz özellikler barındırsın. Bu özelliklerle birlikte istenilen herhangi bir Computer meydana getirebilmeliyim. Bu da ancak her parametreyle yaratılabilecek constructor ile sağlanabilir. Şöyle ki:
-
+I have a Computer class and it contains the necessary and unnecessary features. I should be able to create any Computer with these features. This can only be achieved with a constructor that can be created with any parameter. Namely:
 ```
 public Computer(String brand)  
 {  
     this(brand, null);  
-}public Computer(String brand, ComputerType computerType)  
+}
+public Computer(String brand, ComputerType computerType)  
 {  
     this(brand, computerType, null);  
-}  
-  
+}
 public Computer(String brand, ComputerType computerType, String OS)  
 {  
     this(brand, computerType, OS, null);  
-}  
-  
+}
 public Computer(String brand, ComputerType computerType, String OS, String brandMotherboard)  
 {  
     this(brand, computerType, OS, brandMotherboard, brand, null, 0);  
-}  
-  
-public Computer(String brand, ComputerType computerType, String OS, String brandMotherboard,  
+}
+public Computer(String brand, ComputerType computerType, String OS, String brandMotherboard, 
                 String brandCPU, String familyCPU, float speedCPU)  
 {  
     this(brand, computerType, OS, brandMotherboard, brandCPU, familyCPU, speedCPU, null, 0);  
-}...  
+}
+...  
 ....  
 .....  
-......public Computer(String brand, ComputerType computerType, String OS, String brandMotherboard,  
+......
+
+public Computer(String brand, ComputerType computerType, String OS, String brandMotherboard,  
                 String brandCPU, String familyCPU, float speedCPU, DiskType diskTypes, int capacityDisk,  
                 int capacityRAM, int capacityDisplayCard, int capacityBattery, float screenInch,  
                 String resolution, KeyboardType typeKeyboard, boolean hasDiskDriver, boolean hasWebcam,  
@@ -90,69 +96,54 @@ public Computer(String brand, ComputerType computerType, String OS, String brand
     this.hasPrinter = hasPrinter;  
 }
 ```
+Although I said _“the constructor that connects to each other in the form of a waterfall”_ above, they compared it to a telescope that can be opened and closed rather than a waterfall in the literature. 🤷🏻 For those who want to research in detail: **Telescoping Constructor**
 
-Yukarıda “_şelale şeklinde birbirine katmanlı bağlanan constructor_” desem de literatürde şelaleye benzetmektense açılıp kapatılabilir teleskopa benzetmişler 🤷🏻‍♂️ Detaylı araştırmak isteyenler için: **Telescoping Constructor**
-
-Gel biz hedef olarak kendimize bir bilgisayar belirleyelim ve her yöntemde o bilgisayarı yaratmaya çalışalım.
-
+Let's set ourselves a computer as a target and try to create it.
 > **Requirements List**  
 > \* Asus  
 > \* Laptop  
 > \* SSD  
 > \* 4GB RAM  
 > \* 15"
-
 ```
-Computer computer = new Computer("ASUS",  
-       ComputerType._LAPTOP_, "", "", "", "", 0f, DiskType._SSD_, 0, 4);
+Computer computer = new Computer("ASUS", ComputerType._LAPTOP_, "", "", "", "", 0f, DiskType._SSD_, 0, 4);
 ```
+Did anything bother your eyes? Mine is bleeding. 😁 Which parameter is the brand, which is the RAM capacity, what are the empty or zero values? How hard is it to read? At the same time, I have sent the features that I do not need. If I want to avoid this and insist on telescoping constructor. I need to create constructors that reference the parameters I want. You think of the combination of 20 features, I couldn't think of it. 🤦🏻
 
-Gözünü rahatsız eden bir şeyler oldu mu? Benim kanadı mesela 😁 Hangi parametre marka, hangisi RAM kapasitesi, boş veya sıfır olan değerler ne? Okuması ne kadar zor değil mi? Birde arada ihtiyacım olmayan özellikleri de göndermiş oldum. Bunun önüne geçmek istersem ve telescoping constructor’da ısrar ediyorsam. İstediğim parametreleri referans alan constructor’lar oluşturmam gerekir. 20 tane özelliğin kombinasyonunu sen düşün ben düşünemedim. 🤦🏻‍♂️
-
-Bu yöntem ilk aklıma gelen oldu. Minnacık daha düşündüğümde Java Beans yöntemi aklıma geldi. Bi’de onu denemekte fayda var. Computer classımızın parametreleri aynı olsun, ihtiyaç listemdeki özellikte bir bilgisayarı Java Beans ile yaratalım.
-
+This method was the first thing that came to my mind. When I thought a little more, the Java Beans method came to my mind. It's a good idea to try Java Beans. Let's have the same parameters of our computer class, let's create a computer with the feature in my requirements list with Java Beans.
 ```
 public void setBrand(String brand)  
 {  
     this.brand = brand;  
-}  
-  
+}
 public void setComputerType(ComputerType computerType)  
 {  
     this.computerType = computerType;  
-}  
-  
+}
 public void setOS(String OS)  
 {  
     this.OS = OS;  
-}  
-  
+}
 ...
 ```
-
-Uzatmayacağım, özetle tüm parametrelerin set metodunu yazmış oldum. Sonrasında İstediğim özelliklerde bir sınıf yarattım ki o da burada 👇🏼
-
+I will not extend it, in summary, I have written the set method of all parameters. Then I created a class with the features I wanted, and it's here 👇🏼
 ```
-Item2.JavaBeans.Computer computer = new Item2.JavaBeans.Computer();  
+Computer computer = new Computer();  
 computer.setBrand("Asus");  
 computer.setComputerType(ComputerType._LAPTOP_);  
 computer.setDiskTypes(DiskType._SSD_);  
 computer.setCapacityRAM(4);  
 computer.setScreenInch(15);
 ```
+It looks more organized, readable and clean. (Virgos liked this👍🏼)
 
-Daha düzenli, okunabilir ve temiz görünüyor. (Başak burçları bunu beğendi👍🏼)
+So is it safe? What's the availability? I can say that if I compare with the previous one, with this number of parameters (20) I would choose this method. But since this method assigns values ​​in multiple rows, it has management difficulties. Objects created using the JavaBeans method are mutable, so they are not _immutable_. In a large codebase, the value of the object may be set in one of the streams and the object may be changed in another stream. The developer who reads later looks for it and is hard to find. The fact that it is not defined in a single line can cause serious and difficult to find-explain bugs in parallel programming. (ohh memories 🚬).
 
-Peki güvenli mi? Kullanılabilirliği ne alemde? Şöyle söyleyebilirim ki bir öncekiyle kıyaslarsam bu sayıda bir parametre ile (20) ben bu arkadaşı seçerdim. Fakat bu arkadaşın da çoklu satırda değer ataması yaptığı için yönetim zorluğu var. JavaBeans yöntemi kullanarak oluşturulan nesneler değiştirilebilir yani _immutable_ değildir. Büyük bir code base’de akışların birinde objenin tek değeri set edilmiş ve obje değiştirilmiş olabilir. Sonrasında okuyan kişi arasın dursun 😱 Tek satırda tanımlanmayışı paralel programlamada da ciddi ve bulunması-anlamlandırılması zor buglara neden olabiliyor.
+hmmm… If you say "what will the developers write if both are not good 🤬", calm. There is a cool method **Builder Pattern**, although the processing cost is a little higher than the others.
 
-eeeee… o olmaz bu olmaz ne yazacak bu millet 🤬 diyorsan eğer sakin, uğraşı diğerlerine göre birazcık fazla olsada çiçek gibi bir yöntem **Builder Pattern** var.
 
-* * *
-
-Mekanın sahibi: **Builder Pattern;**
-
-Yine parametrelerim aynı birde ekstradan **Builder** adlı bir classım var. Bu class içerisinde zorunlu ve opsiyonel olan parametreleri belirliyorum. Bu parametreler asıl classımdakilerle aynı bu yüzden iki tarafı sürekli eş tutmam gerekiyor buda biraz👌🏼 uğraştırıyor.
-
+## The place owner: **Builder Pattern;**
+Again, my parameters are the same, and I have an extra class called **Builder**. I define mandatory and optional parameters in this class. These parameters are the same as in my main class, so I have to keep the two sides equal, which is a bit of a hassle👌🏼. This is where the processing cost I'm talking about comes from.
 ```
 public static class Builder {  
       
@@ -166,11 +157,10 @@ public static class Builder {
     private float speedCPU              = 0f;  
     ...  
       
-    public Builder(String brand, ComputerType computerType) {  
+    public Builder(String brand, ComputerType computerType) { 
         this.brand        = brand;  
         this.computerType = computerType;  
     }  
-      
     public Builder brandMotherboard(String val)  
     {  
         brandMotherboard = val;  
@@ -180,24 +170,25 @@ public static class Builder {
     {  
         brandCPU = val;  
         return this;  
-    } ...  
+    }
     ...  
-    ... public Computer build()  
+    ...  
+    ... 
+    public Computer build()  
     {  
         return new Computer(this);  
     }  
 }
 ```
-
-Yaratmış olduğum bu Builder Class’ı Computer Class’ıma bağlıyorum.
-
+I am connecting this Builder Class that I have created to my Computer Class.
 ```
 public class Computer   
 {  
     private final String brand;  
     private final ComputerType computerType;  
     private final String OS;  
-    ... public Computer(Builder builder)  
+    ... 
+    public Computer(Builder builder)  
     {  
         brand = builder.brand;  
         computerType = builder.computerType;  
@@ -208,16 +199,16 @@ public class Computer
     }  
 }
 ```
-
-Artık Computer classımı builder ile oluşturabilirim.
-
+Now I can create my Computer class with builder.
 ```
-Computer computer =new Computer.Builder("Asus", ComputerType._LAPTOP_)  
-.diskTypes(DiskType._SSD_).capacityRAM(4).screenInch(15).build();
+Computer computer =new Computer.Builder("Asus", ComputerType._LAPTOP_)
+    .diskTypes(DiskType._SSD_)
+    .capacityRAM(4)
+    .screenInch(15)
+    .build();
 ```
+I add the mandatory parameters with the builder constructor and the optional parameters with the setter methods, then build() and I get a readable, organized, clean, one-time generated object with the parameters I want. 🎉
 
-Zorunlu parametreleri builder constructor’la, opsiyonel parametreleri de setter metodlarla ekleyip sonrasında build() ediyorum ve istediğim parametrelere sahip okunabilir, düzenli, temiz , tek seferde üretilmiş objeyi elde etmiş oluyorum. 🎉
-
-Unutmadan söyleyeyim. Bu repo'nın daha detaylı açıklamasını [**medium**](https://medium.com/@53.emreyildirim/%C3%A7ok-parametreli-constructor-y%C3%B6netimi-65bcf4a4350d) hesabımda bulabilirsin. Beğendiysen orada da alkışını bekliyorum.
+I will tell before I forget. You can much more detail in my blog [mryldrm.com](https:/mryldrm.com/en/posts/how-to-create-a-multi-parameter-class)
 
 Au revoi 🙋🏻‍♂️
