@@ -200,6 +200,6 @@ Computer computer =new Computer.Builder("Asus", ComputerType._LAPTOP_)
 ```
 I add the mandatory parameters with the builder constructor and the optional parameters with the setter methods, then build() and I get a readable, organized, clean, one-time generated object with the parameters I want. 🎉
 
-I will tell before I forget. You can much more detail in my blog [mryldrm.com](https:/mryldrm.com/en/posts/how-to-create-a-multi-parameter-class)
+I will tell before I forget. You can much more detail in my blog [**mryldrm.com**](https://mryldrm.com/en/posts/how-to-create-a-multi-parameter-clas)
 
 Au revoi 🙋🏻‍♂️
