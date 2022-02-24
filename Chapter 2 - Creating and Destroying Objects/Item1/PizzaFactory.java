@@ -11,21 +11,16 @@ public class PizzaFactory
     // singleton object control over the instance with static factory model
     public static PizzaFactory getInstance(String pizzaSize, boolean hasPepperoni, boolean hasCheese)
     {
-        PizzaFactory pizzaFactory = new PizzaFactory();
-
-        if (pizzaFactoryInstance != null)
+        if (pizzaFactoryInstance == null)
         {
-            pizzaFactory = pizzaFactoryInstance;
-        }
-        else
-        {
+            PizzaFactory pizzaFactory = new PizzaFactory();
             pizzaFactory.pizzaSize = pizzaSize;
             pizzaFactory.hasPepperoni = hasPepperoni;
             pizzaFactory.hasCheese = hasCheese;
             pizzaFactoryInstance = pizzaFactory;
         }
 
-        return pizzaFactory;
+        return pizzaFactoryInstance;
     }
 
     public static String slicedPizza()
